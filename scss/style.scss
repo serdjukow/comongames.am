@@ -1,0 +1,255 @@
+@import '_normalize';
+@import '_config';
+
+.header {
+	padding: 0 15px;
+	background-color: #fff;
+
+	// .header__row
+
+	// .header__nav
+
+	&__nav {
+		min-height: 70px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	// .header__list
+
+	&__list {
+		list-style: none;
+		padding: 0;
+		user-select: none;
+	}
+
+	// .header__li
+
+	&__li {
+		display: inline-block;
+
+		&:not(:last-child) {
+			margin-right: 20px;
+		}
+		a {
+			position: relative;
+			color: #000000;
+			font-size: 20px;
+			font-weight: 700;
+			text-transform: uppercase;
+			text-decoration: none;
+			transition: color 0.3s ease-in;
+			&::after {
+				position: absolute;
+				content: '';
+				display: block;
+				width: 100%;
+				height: 3px;
+				background-color: $accent;
+				bottom: 3px;
+				opacity: 0;
+				transition: 0.25s ease-in;
+			}
+			@media (any-hover: hover) {
+				&:hover {
+					color: $accent;
+					&::after {
+						background-color: $accent;
+						bottom: 0;
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	&__bottom {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: calc(100vh - 70px);
+		min-height: 500px;
+	}
+
+	&__logo {
+		flex: 0 1 400px;
+		max-width: 400px;
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+}
+
+.title {
+	font-size: 42px;
+	font-weight: 600;
+	margin: 0;
+	padding: 0;
+}
+
+.game {
+	position: relative;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+	}
+
+	// .game__content-body
+
+	&__content-body {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 150px;
+		height: 80vh;
+		min-height: 500px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		z-index: 2;
+		@media(max-width: 800px) {
+			flex-direction: column;
+			height:auto;
+			gap: 30px;
+			text-align: center;
+		}
+	}
+
+	&__icon {
+		flex: 0 0 210px;
+		max-width: 210px;
+		img {
+			width: 100%;
+			display: block;
+		}
+		@media(max-width: 800px) {
+			flex: 0 0 300px;
+			max-width: 300px;
+		}
+	}
+
+	// .game__title
+
+	&__title {
+		margin-bottom: 30px;
+		text-transform:capitalize;
+	}
+
+	// .game__content
+
+	&__content {
+		color: #fff;
+		
+	}
+
+	// .game__text
+
+	&__text {
+		font-size: 16px;
+		line-height: 1.5;
+		max-width: 460px;
+		margin: 0 0 32px;
+	}
+
+	// .game__links
+
+	&__links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+		@media(max-width: 800px) {
+			justify-content: center;
+		}
+	}
+
+	&__link {
+		display: inline-block;
+		text-decoration: none;
+		transition: opacity 0.3s ease-in;
+		@media (any-hover: hover) {
+			&:hover {
+				opacity: .7;
+			}
+		}
+	}
+
+	// .game__video-bg
+
+	&__video-bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 0;
+	}
+}
+
+.contacts {
+	height: 80vh;
+	min-height: 500px;
+}
+
+.footer {
+	padding: 70px 15px 75px;
+	text-align: center;
+	background-color: #000;
+
+	// .footer__links
+
+	&__links {
+		margin-bottom: 80px;
+		user-select: none;
+		a {
+			font-size: 14px;
+			font-weight: 600;
+			color: #fff;
+			text-decoration: none;
+
+			transition: color 0.3s ease-in;
+			&:not(:last-child) {
+				margin-right: 20px;
+			}
+			@media (any-hover: hover) {
+				&:hover {
+					color: $accent;
+				}
+			}
+		}
+	}
+
+	// .footer__logo
+
+	&__logo {
+		margin: 0 auto;
+		max-width: 160px;
+		margin-bottom: 50px;
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	// .footer__copiright
+
+	&__copiright {
+		font-size: 14px;
+		color: rgba(#fff, 0.7);
+		p {
+			padding: 0;
+			margin: 0;
+			&:not(:last-child) {
+				margin-bottom: 5px;
+			}
+		}
+	}
+}
