@@ -33,7 +33,7 @@
 				<section id="games" class="game">
 					<div class="game__content-body game__container">
 						<figure class="game__icon">
-							<img src="images/game-icon.png" alt="Game Icon" />
+							<img src="images/unnamed.webp" alt="Game Icon" />
 						</figure>
 						<div class="game__content">
 							<h2 class="game__title title">Game title</h2>
@@ -242,7 +242,32 @@
 					</video>
 				</section>
 
-				<section id="contacts" class="contacts"></section>
+				<section id="contacts" class="contact-us">
+					<div class="contact-us__row">
+						<h2 class="contact-us__title title">Contact Us</h2>
+
+						<form class="contact-us__form form" enctype="multipart/form-data" method="post" id="form" onsubmit="send(event, 'sendemail.php')">
+							<input type="email" name="email" id="email" class="form__field" autocomplete="off" placeholder="Your E-mail" required />
+							<input type="text" name="name" id="name" class="form__field" autocomplete="off" placeholder="Your Full Name" required />
+							<textarea name="message" id="message" class="form__field" placeholder="Comments" required></textarea>
+							<button id="callback" name="submit" class="form__btn btn">Send</button>
+							<div class="info-message show">
+								<fieldset class="info-message__container">
+									<legend class="info-message__title" align="left">Message</legend>
+									<div class="info-message__body">
+										<p>Thank you for choosing us!</p>
+										<p>Your request has been accepted, our manager will contact you soon.</p>
+									</div>
+								</fieldset>
+							</div>
+						</form>
+						<script type="text/javascript">
+							if (window.history.replaceState) {
+								window.history.replaceState(null, null, window.location.href)
+							}
+						</script>
+					</div>
+				</section>
 			</main>
 			<footer class="footer">
 				<div class="footer__links">
