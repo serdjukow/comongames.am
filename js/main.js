@@ -37,5 +37,4 @@ function showInfoMessage(message, status) {
 	// }, 3000)
 }
 
-showInfoMessage(`<p>Thank you for choosing us!</p>
-<p>Your request has been accepted, our manager will contact you soon.</p>`, 'ok')
+//showInfoMessage(`<p>Thank you for choosing us!</p><p>Your request has been accepted, our manager will contact you soon.</p>`, 'ok')

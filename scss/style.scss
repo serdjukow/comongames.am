@@ -73,8 +73,8 @@
 	}
 
 	&__logo {
-		flex: 0 1 400px;
-		max-width: 400px;
+		flex: 0 1 200px;
+		max-width: 200px;
 		img {
 			display: block;
 			width: 100%;
@@ -281,7 +281,7 @@
 	z-index: -10;
 	visibility: hidden;
 	pointer-events: none;
-	padding: 5px;	
+	padding: 5px;
 	overflow: hidden;
 	background-color: #fff;
 	border-radius: 5px;
@@ -315,35 +315,33 @@
 		border-radius: 5px;
 	}
 
-		// .info-messages__message
+	// .info-messages__message
 
-		&__message {
-			margin-bottom: 10px;
-			text-transform: capitalize;
-		}
-	
-		// .info-messages__img
-	
-		&__img {
-			margin-bottom: 15px;
-		}
-	
-		// .info-messages__img-container
-	
-		&__img-container {
-			position: relative;
-			width: 30px;
-			height: 30px;
-			margin: 0 auto;
+	&__message {
+		margin-bottom: 10px;
+		text-transform: capitalize;
+	}
 
-			img {
-				width: 100%;
-				height: 100%;
-			}
+	// .info-messages__img
+
+	&__img {
+		margin-bottom: 15px;
+	}
+
+	// .info-messages__img-container
+
+	&__img-container {
+		position: relative;
+		width: 30px;
+		height: 30px;
+		margin: 0 auto;
+
+		img {
+			width: 100%;
+			height: 100%;
 		}
+	}
 }
-
-
 
 .footer {
 	padding: 70px 15px 25px;
