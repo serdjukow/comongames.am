@@ -40,6 +40,20 @@ function showInfoMessage(message, status) {
 //showInfoMessage(`<p>Thank you for choosing us!</p><p>Your request has been accepted, our manager will contact you soon.</p>`, 'ok')
 
 gsap.registerPlugin(ScrollTrigger)
+
+const headerLogo = document.querySelector('.header__logo')
+
+if (headerLogo) {
+	gsap.from(headerLogo, {
+		scrollTrigger: {
+			trigger:headerLogo,
+			toggleActions: 'restart pause restart pause',
+		},
+		opacity: 0,
+		duration: 1
+	})
+}
+
 const pageWidth = document.documentElement.scrollWidth
 const gameBlocks = document.querySelectorAll('.game')
 
@@ -59,7 +73,7 @@ if (pageWidth > 768) {
 					toggleActions: 'restart pause restart pause',
 				},
 				x: 30,
-				duration: 1,
+				duration: 1
 			})
 	})
 }
