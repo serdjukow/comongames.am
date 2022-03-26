@@ -31,10 +31,35 @@ function showInfoMessage(message, status) {
 		</div>
 	`
 
-	// setTimeout(() => {
-	// 	infoMessages.classList.remove('show')
-	// 	infoMessagesBody.textContent = ''
-	// }, 3000)
+	setTimeout(() => {
+		infoMessages.classList.remove('show')
+		infoMessagesBody.textContent = ''
+	}, 3000)
 }
 
 //showInfoMessage(`<p>Thank you for choosing us!</p><p>Your request has been accepted, our manager will contact you soon.</p>`, 'ok')
+
+gsap.registerPlugin(ScrollTrigger)
+const pageWidth = document.documentElement.scrollWidth
+const gameBlocks = document.querySelectorAll('.game')
+
+if (pageWidth > 768) {
+	gameBlocks.forEach(block => {
+		gsap.from(block.querySelector('.game__icon'), {
+			scrollTrigger: {
+				trigger: block.querySelector('.game__icon'),
+				toggleActions: 'restart pause restart pause',
+			},
+			x: -30,
+			duration: 1,
+		}),
+			gsap.from(block.querySelector('.game__content'), {
+				scrollTrigger: {
+					trigger: block.querySelector('.game__content'),
+					toggleActions: 'restart pause restart pause',
+				},
+				x: 30,
+				duration: 1,
+			})
+	})
+}
