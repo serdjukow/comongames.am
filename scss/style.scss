@@ -34,16 +34,19 @@
 		}
 		a {
 			position: relative;
+			display: inline-block;
 			color: #fff;
 			font-size: 20px;
 			font-weight: 700;
 			text-transform: uppercase;
 			text-decoration: none;
+			
 			transition: color 0.3s ease-in;
+			padding-bottom: 5px;
 			&::after {
-				position: absolute;
 				content: '';
 				display: block;
+				position: absolute;
 				width: 100%;
 				height: 3px;
 				background-color: $accent;
@@ -83,10 +86,11 @@
 }
 
 .title {
-	font-size: 42px;
+	@include adaptiv-value("font-size", 42, 32, 1);
 	font-weight: 600;
 	margin: 0;
 	padding: 0;
+	text-transform: capitalize;
 }
 
 .game {
@@ -109,16 +113,15 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 150px;
+		@include adaptiv-value("gap", 150, 30, 1);
 		height: 95vh;
 		min-height: 500px;
-		padding-top: 20px;
-		padding-bottom: 20px;
+		padding-top: 30px;
+		padding-bottom: 30px;
 		z-index: 2;
-		@media (max-width: 800px) {
+		@media (max-width: 768px) {
 			flex-direction: column;
-			height: auto;
-			gap: 30px;
+			height: auto;			
 			text-align: center;
 		}
 	}
@@ -126,11 +129,13 @@
 	&__icon {
 		flex: 0 0 210px;
 		max-width: 210px;
+		border-radius: 15px;
+		overflow: hidden;
 		img {
 			width: 100%;
 			display: block;
 		}
-		@media (max-width: 800px) {
+		@media (max-width: 768px) {
 			flex: 0 0 180px;
 			max-width: 180px;
 		}
@@ -139,8 +144,7 @@
 	// .game__title
 
 	&__title {
-		margin-bottom: 30px;
-		text-transform: capitalize;
+		@include adaptiv-value("margin-bottom", 30, 15, 1);		
 	}
 
 	// .game__content
@@ -164,7 +168,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 20px;
-		@media (max-width: 800px) {
+		@media (max-width: 768px) {
 			justify-content: center;
 		}
 	}
@@ -173,10 +177,15 @@
 		display: inline-block;
 		text-decoration: none;
 		transition: opacity 0.3s ease-in;
+		max-width:165px;
 		@media (any-hover: hover) {
 			&:hover {
 				opacity: 0.7;
 			}
+		}
+		img {
+			display: block;
+			width: 100%;
 		}
 	}
 
@@ -199,15 +208,18 @@
 
 	&__row {
 		max-width: 940px;
-		padding: 100px 15px;
+		padding-right: 15px;
+		padding-left: 15px;
 		margin: 0 auto;
 		text-align: center;
+		@include adaptiv-value("padding-top", 100, 30, 1);
+		@include adaptiv-value("padding-bottom", 100, 30, 1);
 	}
 
 	// .contact-us__title
 
 	&__title {
-		margin-bottom: 80px;
+		@include adaptiv-value("margin-bottom", 80, 30, 1);
 	}
 
 	// .contact-us__form
@@ -345,21 +357,23 @@
 }
 
 .footer {
-	padding: 70px 15px 25px;
 	text-align: center;
 	background-color: #000;
-
+	padding-right: 15px;
+	padding-left: 15px;
+	@include adaptiv-value("padding-top", 70, 50, 1);
+	@include adaptiv-value("padding-bottom", 25, 20, 1);
 	// .footer__links
 
 	&__links {
 		margin-bottom: 40px;
+		@include adaptiv-value("margin-bottom", 40, 35, 1);
 		user-select: none;
 		a {
 			font-size: 14px;
 			font-weight: 600;
 			color: #fff;
 			text-decoration: none;
-
 			transition: color 0.3s ease-in;
 			&:not(:last-child) {
 				margin-right: 20px;
@@ -376,8 +390,8 @@
 
 	&__logo {
 		margin: 0 auto;
-		max-width: 160px;
-		margin-bottom: 50px;
+		@include adaptiv-value("max-width", 160, 100, 1);
+		@include adaptiv-value("margin-bottom", 50, 30, 1);
 		img {
 			display: block;
 			width: 100%;
@@ -390,7 +404,6 @@
 		font-size: 14px;
 		color: rgba(#fff, 0.7);
 		p {
-			padding: 0;
 			margin: 0;
 			&:not(:last-child) {
 				margin-bottom: 5px;

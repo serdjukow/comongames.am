@@ -4,7 +4,7 @@ $fontsize: 16px // Body Font Size
 $textcolor: #000 // Text Color
 $bgfooter: #313030 // Footer background color
 $lineheight: 1.2 // Document Line Height
-$userfont: 'open-sans-oh5', sans-serif // User Font Family
+$userfont: 'open-sans-cg', sans-serif // User Font Family
 $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
 
 
@@ -14,19 +14,16 @@ $maxWidth: 1400
 @mixin adaptiv-value($property, $startSize, $minSize, $type)
 	$addSize: $startSize - $minSize
 	@if $type==1
-		//Только если меньше контейнера
 		#{$property}: $startSize + px
 		@media (max-width: #{$maxWidthContainer + px})
 			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}))
 
 	@else if $type==2
-		//Только если больше контейнера
 		#{$property}: $startSize + px
 		@media (min-width: #{$maxWidthContainer + px})
 			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}))
 
 	@else
-		//Всегда
 		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}))
 
 
@@ -41,9 +38,9 @@ $maxWidth: 1400
 		src: url($furl) format('woff2')
 
 /* open-sans-regular - latin */
-@include font('open-sans-oh5', normal, 400, '../fonts/open-sans-v28-latin-regular.woff2')
-@include font('open-sans-oh5', normal, 600, '../fonts/open-sans-v28-latin-600.woff2')
-@include font('open-sans-oh5', normal, 700, '../fonts/open-sans-v28-latin-700.woff2')
+@include font('open-sans-cg', normal, 400, '../fonts/open-sans-v28-latin-regular.woff2')
+@include font('open-sans-cg', normal, 600, '../fonts/open-sans-v28-latin-600.woff2')
+@include font('open-sans-cg', normal, 700, '../fonts/open-sans-v28-latin-700.woff2')
 
 // GENERAL CSS SETTINGS
 ::placeholder
@@ -92,34 +89,6 @@ figure
 img
 	user-select: none
 
-// h1 
-// 	font-style: normal
-// 	font-weight: 700
-// 	@include adaptiv-value("font-size", 32, 20, 1)
-// 	@include adaptiv-value("line-height", 40, 25, 1)
-// 	letter-spacing: 0.05em
-// 	color: #fff
-// h2 
-// 	font-style: normal
-// 	font-weight: 600
-// 	@include adaptiv-value("font-size", 20, 16, 1)
-// 	@include adaptiv-value("line-height", 30, 30, 1)
-// 	letter-spacing: 0.03em
-// 	color: #fff
-// h3 
-// 	font-style: normal
-// 	font-weight: 600
-// 	@include adaptiv-value("font-size", 20, 16, 1)
-// 	@include adaptiv-value("line-height", 30, 30, 1)
-// 	letter-spacing: 0.03em
-// 	color: #fff
-// h4 
-// 	font-style: normal
-// 	font-weight: 400
-// 	font-size: 20px
-// 	line-height: 30px
-// 	@include adaptiv-value("font-size", 20, 14, 1)
-// 	@include adaptiv-value("line-height", 30, 16, 1)
-// 	letter-spacing: 0.03em
-// 	color: #fff
+a
+	outline: none
 
