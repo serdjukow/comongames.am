@@ -58,21 +58,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (pageWidth > 768) {
 		gameBlocks.forEach(block => {
-			gsap.from(block.querySelector('.game__icon'), {
+
+			const gameIcon = block.querySelector('.game__icon')
+			const gameTitle = block.querySelector('.game__title')
+			const gameText = block.querySelector('.game__text')
+			const gameLinks = block.querySelector('.game__links')
+
+			gsap.from(gameIcon, {
 				scrollTrigger: {
-					trigger: block.querySelector('.game__icon'),
+					trigger:gameIcon,
 					toggleActions: 'restart pause restart pause',
 				},
-				duration: 1,
+				duration: 0.8,
+				opacity: 0,
+				stagger: 0.6,
+				ease: 'back.in',
+				force3D: true,
 				x: -30,
 			}),
-				gsap.from(block.querySelector('.game__content'), {
+				gsap.from(gameTitle, {
 					scrollTrigger: {
-						trigger: block.querySelector('.game__content'),
+						trigger: gameTitle,
 						toggleActions: 'restart pause restart pause',
 					},
-					duration: 1,
-					x: 30
+					duration: 0.4,
+					opacity: 0,
+					//stagger: 0.4,
+					ease: 'back.in',
+					force3D: true,
+					y: 20,
+				}),
+				gsap.from(gameText, {
+					scrollTrigger: {
+						trigger: gameText,
+						toggleActions: 'restart pause restart pause',
+					},
+					duration: 0.6,
+					opacity: 0,
+					//stagger: 0.5,
+					ease: 'back.in',
+					force3D: true,
+					y: 20,
+				}),
+				gsap.from(gameLinks, {
+					scrollTrigger: {
+						trigger: gameLinks,
+						toggleActions: 'restart pause restart pause',
+					},
+					duration: 0.8,
+					opacity: 0,
+					//stagger: 0.6,
+					ease: 'back.in',
+					force3D: true,
+					y: 20,
 				})
 		})
 	}
