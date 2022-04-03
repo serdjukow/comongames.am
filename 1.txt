@@ -1,0 +1,13 @@
+DB_NAME', 'unterricht
+/** Database username */
+define( 'DB_USER', 'test_user' );
+
+/** Database password */
+define( 'DB_PASSWORD', 'test988334!' );
+
+/** Database hostname */
+define( 'DB_HOST', 'localhost' );
+
+
+developer 
+6OEA6ECRqvvha3s58sCo

@@ -410,6 +410,7 @@ body {
   height: 100%;
   position: relative;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .wrapper {
@@ -424,7 +425,7 @@ body {
   overflow: hidden;
 }
 
-.wrapper > main {
+.wrapper > .page {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -564,6 +565,24 @@ a {
 @media (max-width: 1400px) {
   .title {
     font-size: calc(32px + 10 * ((100vw - 320px) / 1080));
+  }
+}
+
+.page {
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+  .page .scroll-block {
+    position: relative;
+    width: 100%;
+    scroll-snap-align: start;
+    background-blend-mode: multiply;
   }
 }
 

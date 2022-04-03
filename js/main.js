@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger)
+
 document.addEventListener('DOMContentLoaded', () => {
 	const scrollToElement = () => {
 		document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -11,36 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			})
 		})
 	}
-	scrollToElement()
+	//scrollToElement()
 
-	function showInfoMessage(message, status) {
-		const infoMessages = document.querySelector('.info-message')
-		const infoMessagesBody = document.querySelector('.info-message__body')
-
-		const ok = 'images/ok.svg'
-		const error = 'images/error.svg'
-
-		infoMessages.classList.add('show')
-		infoMessagesBody.innerHTML = `
-	<div class="info-messages__img">
-		<div class="info-message__img-container">
-			<img src="${status === 'ok' ? ok : error}" alt="${message}">
-		</div>
-		</div>
-		<div class="info-message__message">
-			<span>${message}</span>
-		</div>
-	`
-
-		setTimeout(() => {
-			infoMessages.classList.remove('show')
-			infoMessagesBody.textContent = ''
-		}, 3000)
-	}
-
-	//showInfoMessage(`<p>Thank you for choosing us!</p><p>Your request has been accepted, our manager will contact you soon.</p>`, 'ok')
-
-	gsap.registerPlugin(ScrollTrigger)
 
 	if (document.querySelector('.header__logo')) {
 		gsap.from(document.querySelector('.header__logo'), {
@@ -58,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (pageWidth > 768) {
 		gameBlocks.forEach(block => {
-
 			const gameIcon = block.querySelector('.game__icon')
 			const gameTitle = block.querySelector('.game__title')
 			const gameText = block.querySelector('.game__text')
@@ -66,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			gsap.from(gameIcon, {
 				scrollTrigger: {
-					trigger:gameIcon,
+					trigger: gameIcon,
 					toggleActions: 'restart pause restart pause',
 				},
 				duration: 0.8,
@@ -114,4 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				})
 		})
 	}
+	const gameContainer = document.querySelector('.page')
+	gameContainer.addEventListener('scroll', e => {
+		ScrollTrigger.refresh()
+	})
 })
