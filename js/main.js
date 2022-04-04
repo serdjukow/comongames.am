@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	//scrollToElement()
 
-
 	if (document.querySelector('.header__logo')) {
 		gsap.from(document.querySelector('.header__logo'), {
 			duration: 1,
@@ -29,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const pageWidth = document.documentElement.scrollWidth
 	const gameBlocks = document.querySelectorAll('.game')
+
+
 
 	if (pageWidth > 768) {
 		gameBlocks.forEach(block => {
@@ -90,5 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	const gameContainer = document.querySelector('.page')
 	gameContainer.addEventListener('scroll', e => {
 		ScrollTrigger.refresh()
+	})
+
+	const page = document.querySelector('.page')
+	const pageHeight = page.scrollHeight - window.innerHeight
+	page.addEventListener('scroll', () => {
+		const dashoffset = (page.scrollTop / pageHeight) * 100
+		document.querySelector('progress').value = dashoffset
 	})
 })
